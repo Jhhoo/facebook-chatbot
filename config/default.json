@@ -1,6 +1,6 @@
 {
-    "appSecret": "",
-    "pageAccessToken": "",
-    "validationToken": "",
-    "serverURL": ""
+    "appSecret": "JonChatBot",
+    "pageAccessToken": "EAAFHjOtv7pYBANEYw6aZCTh8zgqtJwThZAwvie77pbVrigxW87sx4Kr9M7v7lgGZA0daXgjC6AsCMtG41y1JqpADKxDUrCZCfJUM4cQhBdPhgkxHvLrB3DHkhEjM55DMsZBlrbYQefWKUnSDdzrSgQoqd7YIZCk0WThYZC96ySDkQZDZD",
+    "validationToken": "JonChatBot",
+    "serverURL": "https://aqueous-beach-48898.herokuapp.com/webhook/"
 }
