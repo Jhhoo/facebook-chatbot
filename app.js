@@ -207,12 +207,6 @@ function receivedAuthentication(event) {
 *
 )
 */
-function greetingText(recipientId) {
-  setting_type:"greeting",
-  greeting:{
-    text:"Timeless apparel for the masses."
-  }
-};
 
 
 /*
