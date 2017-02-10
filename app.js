@@ -201,6 +201,20 @@ function receivedAuthentication(event) {
   sendTextMessage(senderID, "Authentication successful");
 }
 
+
+/*
+* Greeting Text Test
+*
+)
+*/
+function greetingText(recipientId) {
+  setting_type:"greeting",
+  greeting:{
+    text:"Timeless apparel for the masses."
+  }
+};
+
+
 /*
  * Message Event
  *
