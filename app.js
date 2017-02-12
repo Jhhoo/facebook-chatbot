@@ -827,7 +827,7 @@ function sendAccountLinking(recipientId) {
 
 
 
-
+/*
 var persistentMenuData = {
     setting_type : "call_to_actions",
     thread_state : "existing_thread",
@@ -856,8 +856,8 @@ var persistentMenuData = {
       }
     ]
 };
-
-
+*/
+/*
 function persistentMenu(persistentMenuData) {
   request({
     uri: 'https://graph.facebook.com/v2.6/me/thread_settings',
@@ -866,15 +866,7 @@ function persistentMenu(persistentMenuData) {
     json: persistentMenuData
   }
 };
-
-
-
-
-
-
-
-
-
+*/
 
 
 /*
@@ -898,7 +890,7 @@ function persistentMenu(persistentMenuData) {
      }
    });
  }
- 
+
  /*
   * Call the Send API. The message data goes in the body. If successful, we'll
   * get the message id in a response
@@ -939,7 +931,7 @@ app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
   setGreetingText();
   setGetStarted();
-  persistentMenu();
+  //persistentMenu();
 });
 
 module.exports = app;
