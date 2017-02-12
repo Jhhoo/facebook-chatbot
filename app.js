@@ -836,7 +836,7 @@ function sendAccountLinking(recipientId) {
    });
  }
 
- /* Sample from Facebook
+  Sample from Facebook
 function callSendAPI(messageData) {
   request({
     uri: 'https://graph.facebook.com/v2.6/me/messages',
@@ -861,7 +861,7 @@ function callSendAPI(messageData) {
     }
   });
 }
-*/
+
 
 // Start server
 // Webhooks must be available via SSL with a certificate signed by a valid
