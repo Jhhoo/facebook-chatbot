@@ -827,7 +827,7 @@ function sendAccountLinking(recipientId) {
 
 
 
-/*
+
 var persistentMenuData = {
     setting_type : "call_to_actions",
     thread_state : "existing_thread",
@@ -856,7 +856,7 @@ var persistentMenuData = {
       }
     ]
 };
-*/
+
 /*
 function persistentMenu(persistentMenuData) {
   request({
