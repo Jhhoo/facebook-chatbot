@@ -433,9 +433,9 @@ function sendImageMessage(recipientId) {
     },
     message: {
       attachment: {
-        type: "image_url",
+        type: "image",
         payload: {
-          url: SERVER_URL + "public/assets/rift.png"
+          url: SERVER_URL + "rift.png"
         }
       }
     }
