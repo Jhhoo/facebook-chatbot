@@ -207,13 +207,23 @@ function setGreetingText() {
   var greetingData = {
     setting_type: "greeting",
     greeting:{
-      text:"Hi {{user_first_name}}, welcome!"
+      text:"Hi {{user_first_name}}, welcome to Jon's Chatbot!"
     }
   };
   createGreetingApi(greetingData);
 }
 
-
+function setGettingStarted() {
+  var gettingStarted = {
+    setting_type: "call_to_actions",
+    thread_state: "new_thread",
+    call_to_actions:[
+      {
+       "payload":"USER_DEFINED_PAYLOAD"
+      }
+    ]
+  }
+}
 
 
 
@@ -830,7 +840,9 @@ function sendAccountLinking(recipientId) {
 
    }, function (error, response, body) {
      if (!error && response.statusCode == 200) {
+       console.log("Thread setting setup successfully!")
        console.log("Greeting set successfully!");
+       console.log("Get Started button set successfully!")
      } else {
        console.error("Failed calling Thread Reference API", response.statusCode,     response.statusMessage, body.error);
      }
@@ -847,6 +859,7 @@ function callSendAPI(messageData) {
 
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
+      console.log("Message setting setup successfully!")
       var recipientId = body.recipient_id;
       var messageId = body.message_id;
 
@@ -870,6 +883,7 @@ function callSendAPI(messageData) {
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
   setGreetingText();
+  setGettingStarted();
 });
 
 module.exports = app;
