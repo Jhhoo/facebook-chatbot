@@ -222,7 +222,8 @@ function setGettingStarted() {
        "payload":"USER_DEFINED_PAYLOAD"
       }
     ]
-  }
+  };
+  createGreetingApi(gettingStarted);
 }
 
 
