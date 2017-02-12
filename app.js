@@ -204,6 +204,7 @@ function receivedAuthentication(event) {
 /* Greeting Event
 */
 function setGreetingText() {
+  console.log("Greeting Text set successfully!");
   var greetingData = {
     setting_type: "greeting",
     greeting:{
@@ -214,6 +215,7 @@ function setGreetingText() {
 }
 
 function setGettingStarted() {
+  console.log("Get Started button set successfully!");
   var gettingStarted = {
     setting_type: "call_to_actions",
     thread_state: "new_thread",
@@ -225,6 +227,7 @@ function setGettingStarted() {
   };
   createGreetingApi(gettingStarted);
 }
+
 
 
 
@@ -841,9 +844,7 @@ function sendAccountLinking(recipientId) {
 
    }, function (error, response, body) {
      if (!error && response.statusCode == 200) {
-       console.log("Thread setting setup successfully!")
-       console.log("Greeting set successfully!");
-       console.log("Get Started button set successfully!")
+       console.log("Thread setting setup successfully!");
      } else {
        console.error("Failed calling Thread Reference API", response.statusCode,     response.statusMessage, body.error);
      }
