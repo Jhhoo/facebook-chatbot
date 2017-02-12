@@ -214,7 +214,7 @@ function setGreetingText() {
   createGreetingApi(greetingData);
 }
 
-function setGettingStarted() {
+function setGetStarted() {
   console.log("Get Started button set successfully!");
   var gettingStarted = {
     setting_type: "call_to_actions",
@@ -227,10 +227,6 @@ function setGettingStarted() {
   };
   createGreetingApi(gettingStarted);
 }
-
-
-
-
 
 /*
  * Message Event
@@ -829,11 +825,47 @@ function sendAccountLinking(recipientId) {
   callSendAPI(messageData);
 }
 
+
+
+
+function createGreetingApitest(data) {
+  request({
+    uri: 'https://graph.facebook.com/v2.6/me/thread_settings',
+    qs: { access_token: PAGE_ACCESS_TOKEN },
+    method: 'POST',
+    json: data,
+    content_type: application/json
+
+        {
+        "setting_type":"call_to_actions",
+        "thread_state":"new_thread",
+        "call_to_actions":[
+        {
+          "payload":"USER_DEFINED_PAYLOAD"
+        }
+      ]
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
- * Call the Send API. The message data goes in the body. If successful, we'll
+ * Call the Thread API. Setup Get Started button and Greetings text
  * get the message id in a response
  *
- */
 
  function createGreetingApi(data) {
    request({
@@ -850,7 +882,12 @@ function sendAccountLinking(recipientId) {
      }
    });
  }
-
+ */
+ /*
+  * Call the Send API. The message data goes in the body. If successful, we'll
+  * get the message id in a response
+  *
+  */
 /* Sample from Facebook*/
 function callSendAPI(messageData) {
   request({
@@ -884,8 +921,9 @@ function callSendAPI(messageData) {
 // certificate authority.
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
-  setGreetingText();
-  setGettingStarted();
+  //setGreetingText();
+  //setGetStarted();
+  createGreetingApitest();
 });
 
 module.exports = app;
