@@ -426,16 +426,16 @@ function receivedAccountLink(event) {
  *
  */
 function sendImageMessage(recipientId) {
-  console.log("THIS IS THE SERVER URL" + SERVER_URL)
+  console.log("THIS IS THE SERVER URL " + SERVER_URL)
   var messageData = {
     recipient: {
       id: recipientId
     },
     message: {
       attachment: {
-        type: "image",
+        type: "image_url",
         payload: {
-          url: SERVER_URL + "assets/rift.png"
+          url: SERVER_URL + "public/assets/rift.png"
         }
       }
     }
