@@ -426,6 +426,7 @@ function receivedAccountLink(event) {
  *
  */
 function sendImageMessage(recipientId) {
+  console.log(SERVER_URL)
   var messageData = {
     recipient: {
       id: recipientId
@@ -434,7 +435,7 @@ function sendImageMessage(recipientId) {
       attachment: {
         type: "image",
         payload: {
-          url: SERVER_URL + "public/assets/rift.png"
+          url: SERVER_URL + "assets/rift.png"
         }
       }
     }
@@ -603,7 +604,7 @@ function sendGenericMessage(recipientId) {
             title: "rift",
             subtitle: "Next-generation virtual reality",
             item_url: "https://www.oculus.com/en-us/rift/",
-            image_url: SERVER_URL + "/assets/rift.png",
+            image_url: SERVER_URL + "assets/rift.png",
             buttons: [{
               type: "web_url",
               url: "https://www.oculus.com/en-us/rift/",
