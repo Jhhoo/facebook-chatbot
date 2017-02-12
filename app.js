@@ -426,7 +426,7 @@ function receivedAccountLink(event) {
  *
  */
 function sendImageMessage(recipientId) {
-  console.log(SERVER_URL)
+  console.log("THIS IS THE SERVER URL" + SERVER_URL)
   var messageData = {
     recipient: {
       id: recipientId
@@ -435,7 +435,7 @@ function sendImageMessage(recipientId) {
       attachment: {
         type: "image",
         payload: {
-          url: SERVER_URL + "assets/rift.png"
+          url: "https://cdn.arstechnica.net/wp-content/uploads/sites/3/2016/10/Oculus-Rift-vs-HTC-Vive-vs-PlayStation-VR-1.jpg"
         }
       }
     }
