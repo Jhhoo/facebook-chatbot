@@ -435,7 +435,7 @@ function sendImageMessage(recipientId) {
       attachment: {
         type: "image",
         payload: {
-          url: SERVER_URL + "rift.png"
+          url: "aqueous-beach-48898.herokuapp.com/webhook/rift.png"
         }
       }
     }
