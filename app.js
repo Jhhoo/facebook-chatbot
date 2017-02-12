@@ -858,14 +858,12 @@ var persistentMenuData = {
 };
 
 
-
 function persistentMenu(persistentMenuData) {
   request({
     uri: 'https://graph.facebook.com/v2.6/me/thread_settings',
     qs: { access_token: PAGE_ACCESS_TOKEN },
     method: 'POST',
-    json: persistentMenuData,
-    content_type: application/json
+    json: persistentMenuData
   }
 };
 
@@ -883,6 +881,7 @@ function persistentMenu(persistentMenuData) {
  * Call the Thread API. Setup Get Started button and Greetings text
  * get the message id in a response
  *
+ */
 
  function createGreetingApi(data) {
    request({
@@ -899,7 +898,7 @@ function persistentMenu(persistentMenuData) {
      }
    });
  }
- */
+ 
  /*
   * Call the Send API. The message data goes in the body. If successful, we'll
   * get the message id in a response
