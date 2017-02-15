@@ -844,13 +844,6 @@ function setPersistentMenu() {
         },
         {
           "type":"web_url",
-          "title":"Checkout",
-          "url":"https://www.oculus.com/",
-          "webview_height_ratio": "full",
-          "messenger_extensions": true
-        },
-        {
-          "type":"web_url",
           "title":"View Website",
           "url":"https://www.oculus.com/"
         }
