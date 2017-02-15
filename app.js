@@ -809,13 +809,14 @@ function sendAccountLinking(recipientId) {
 *
 */
 function setGreetingText() {
+  console.log("Greeting Text set successfully!");
   var greetingData = {
     setting_type: "greeting",
     greeting:{
       text:"Hi {{user_first_name}}, welcome to Jon's Chatbot!"
     }
   };
-  console.log("Greeting Text set successfully!");
+
   createGreetingApi(greetingData);
 }
 
@@ -825,6 +826,7 @@ function setGreetingText() {
 */
 
 function setGetStarted() {
+  console.log("Get Started button set successfully!");
   var gettingStarted = {
     setting_type: "call_to_actions",
     thread_state: "new_thread",
@@ -834,7 +836,7 @@ function setGetStarted() {
       }
     ]
   };
-  console.log("Get Started button set successfully!");
+
   createGreetingApi(gettingStarted);
 }
 
@@ -844,6 +846,7 @@ function setGetStarted() {
 */
 
 function setPersistentMenu() {
+  console.log("Persistent menu set successfully!");
   var persistentMenuData = {
       setting_type : "call_to_actions",
       thread_state : "existing_thread",
@@ -865,8 +868,8 @@ function setPersistentMenu() {
         }
       ]
   };
-  console.log("Persistent menu set successfully!");
-  createPersistentMenuApi(persistentMenuData);
+
+  createGreetingApi(persistentMenuData);
 }
 
 /*
