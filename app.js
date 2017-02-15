@@ -858,15 +858,26 @@ var persistentMenuData = {
 };
 
 /*
-function persistentMenu(persistentMenuData) {
+*
+*   NEXT STEP IS GETTING THIS FUNCTION FOR PERSISTENT MENU TO WORK
+*
+*/
+function persistentMenu(data) {
   request({
     uri: 'https://graph.facebook.com/v2.6/me/thread_settings',
     qs: { access_token: PAGE_ACCESS_TOKEN },
     method: 'POST',
-    json: persistentMenuData
-  }
-};
-*/
+    json: data
+
+  }, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      console.log("Thread setting persistent menu setup successfully!");
+    } else {
+      console.error("Failed calling Thread Reference API", response.statusCode,     response.statusMessage, body.error);
+    }
+  });
+}
+
 
 
 /*
@@ -884,7 +895,7 @@ function persistentMenu(persistentMenuData) {
 
    }, function (error, response, body) {
      if (!error && response.statusCode == 200) {
-       console.log("Thread setting setup successfully!");
+       console.log("Thread setting greetings setup successfully!");
      } else {
        console.error("Failed calling Thread Reference API", response.statusCode,     response.statusMessage, body.error);
      }
@@ -931,7 +942,7 @@ app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
   setGreetingText();
   setGetStarted();
-  //persistentMenu();
+  persistentMenu(persistentMenuData);
 });
 
 module.exports = app;
