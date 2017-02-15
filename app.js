@@ -809,14 +809,13 @@ function sendAccountLinking(recipientId) {
 *
 */
 function setGreetingText() {
-  console.log("Greeting Text set successfully!");
+  console.log("Greeting text set successfully!");
   var greetingData = {
     setting_type: "greeting",
     greeting:{
       text:"Hi {{user_first_name}}, welcome to Jon's Chatbot!"
     }
   };
-
   createGreetingApi(greetingData);
 }
 
