@@ -201,33 +201,6 @@ function receivedAuthentication(event) {
   sendTextMessage(senderID, "Authentication successful");
 }
 
-/* Greeting Event
-*/
-function setGreetingText() {
-  console.log("Greeting Text set successfully!");
-  var greetingData = {
-    setting_type: "greeting",
-    greeting:{
-      text:"Hi {{user_first_name}}, welcome to Jon's Chatbot!"
-    }
-  };
-  createGreetingApi(greetingData);
-}
-
-function setGetStarted() {
-  console.log("Get Started button set successfully!");
-  var gettingStarted = {
-    setting_type: "call_to_actions",
-    thread_state: "new_thread",
-    call_to_actions:[
-      {
-       "payload":"USER_DEFINED_PAYLOAD"
-      }
-    ]
-  };
-  createGreetingApi(gettingStarted);
-}
-
 /*
  * Message Event
  *
@@ -825,9 +798,52 @@ function sendAccountLinking(recipientId) {
   callSendAPI(messageData);
 }
 
+
 /*
+*
+* Start server events will activate these thread settings upon launch including
+* a greeting message, get started button, and persistent menu
+*
+*
+* Greeting Message
+*
+*/
+function setGreetingText() {
+  var greetingData = {
+    setting_type: "greeting",
+    greeting:{
+      text:"Hi {{user_first_name}}, welcome to Jon's Chatbot!"
+    }
+  };
+  console.log("Greeting Text set successfully!");
+  createGreetingApi(greetingData);
+}
+
+/*
+* Get Started Button
+*
+*/
+
+function setGetStarted() {
+  var gettingStarted = {
+    setting_type: "call_to_actions",
+    thread_state: "new_thread",
+    call_to_actions:[
+      {
+       "payload":"USER_DEFINED_PAYLOAD"
+      }
+    ]
+  };
+  console.log("Get Started button set successfully!");
+  createGreetingApi(gettingStarted);
+}
+
+/*
+* Persistent Menu
+*
+*/
+
 function setPersistentMenu() {
-  console.log("Persistent menu set successfully!");
   var persistentMenuData = {
       setting_type : "call_to_actions",
       thread_state : "existing_thread",
@@ -849,63 +865,12 @@ function setPersistentMenu() {
         }
       ]
   };
+  console.log("Persistent menu set successfully!");
   createPersistentMenuApi(persistentMenuData);
 }
-*/
-
-var persistentMenuData = {
-    setting_type : "call_to_actions",
-    thread_state : "existing_thread",
-    call_to_actions:[
-      {
-        "type":"postback",
-        "title":"Help",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_HELP"
-      },
-      {
-        "type":"postback",
-        "title":"Start a New Order",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_START_ORDER"
-      },
-      {
-        "type":"web_url",
-        "title":"View Website",
-        "url":"https://www.oculus.com/"
-      },
-      {
-        "type":"web_url",
-        "title":"View Website v2",
-        "url":"https://www.oculus.com/"
-      }
-    ]
-};
-
 
 /*
-*
-*   NEXT STEP IS GETTING THIS FUNCTION FOR PERSISTENT MENU TO WORK
-*
-*/
-function createPersistentMenuApi(data) {
-  request({
-    uri: 'https://graph.facebook.com/v2.6/me/thread_settings',
-    qs: { access_token: PAGE_ACCESS_TOKEN },
-    method: 'POST',
-    json: data
-
-  }, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      console.log("Thread setting persistent menu setup successfully!");
-    } else {
-      console.error("Failed calling Thread Reference API", response.statusCode,     response.statusMessage, body.error);
-    }
-  });
-}
-
-
-
-/*
- * Call the Thread API. Setup Get Started button and Greetings text
+ * Call the Thread API. Setup Get Started button, Greetings text, and Persistent Menu
  * get the message id in a response
  *
  */
@@ -919,7 +884,7 @@ function createPersistentMenuApi(data) {
 
    }, function (error, response, body) {
      if (!error && response.statusCode == 200) {
-       console.log("Thread setting greetings setup successfully!");
+       console.log("Thread setting successful!");
      } else {
        console.error("Failed calling Thread Reference API", response.statusCode,     response.statusMessage, body.error);
      }
@@ -966,7 +931,7 @@ app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
   setGreetingText();
   setGetStarted();
-  createPersistentMenuApi(persistentMenuData);
+  setPersistentMenu();
 });
 
 module.exports = app;
