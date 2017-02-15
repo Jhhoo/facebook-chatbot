@@ -871,6 +871,11 @@ var persistentMenuData = {
         "type":"web_url",
         "title":"View Website",
         "url":"https://www.oculus.com/"
+      },
+      {
+        "type":"web_url",
+        "title":"View Website v2",
+        "url":"https://www.oculus.com/"
       }
     ]
 };
