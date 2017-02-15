@@ -826,43 +826,47 @@ function sendAccountLinking(recipientId) {
 }
 
 
+function setPersistentMenu() {
+  console.log("Persistent menu set successfully!");
+  var persistentMenuData = {
+      setting_type : "call_to_actions",
+      thread_state : "existing_thread",
+      call_to_actions:[
+        {
+          "type":"postback",
+          "title":"Help",
+          "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_HELP"
+        },
+        {
+          "type":"postback",
+          "title":"Start a New Order",
+          "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_START_ORDER"
+        },
+        {
+          "type":"web_url",
+          "title":"Checkout",
+          "url":"http://petersapparel.parseapp.com/checkout",
+          "webview_height_ratio": "full",
+          "messenger_extensions": true
+        },
+        {
+          "type":"web_url",
+          "title":"View Website",
+          "url":"http://petersapparel.parseapp.com/"
+        }
+      ]
+  };
+  createPersistentMenuApi(persistentMenuData);
+}
 
 
-var persistentMenuData = {
-    setting_type : "call_to_actions",
-    thread_state : "existing_thread",
-    call_to_actions:[
-      {
-        "type":"postback",
-        "title":"Help",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_HELP"
-      },
-      {
-        "type":"postback",
-        "title":"Start a New Order",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_START_ORDER"
-      },
-      {
-        "type":"web_url",
-        "title":"Checkout",
-        "url":"http://petersapparel.parseapp.com/checkout",
-        "webview_height_ratio": "full",
-        "messenger_extensions": true
-      },
-      {
-        "type":"web_url",
-        "title":"View Website",
-        "url":"http://petersapparel.parseapp.com/"
-      }
-    ]
-};
 
 /*
 *
 *   NEXT STEP IS GETTING THIS FUNCTION FOR PERSISTENT MENU TO WORK
 *
 */
-function persistentMenu(data) {
+function createPersistentMenuApi(data) {
   request({
     uri: 'https://graph.facebook.com/v2.6/me/thread_settings',
     qs: { access_token: PAGE_ACCESS_TOKEN },
@@ -871,7 +875,7 @@ function persistentMenu(data) {
 
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
-      console.log("Thread setting persistent menu setup successfully!");
+      console.log("Thread setting greetings setup successfully!");
     } else {
       console.error("Failed calling Thread Reference API", response.statusCode,     response.statusMessage, body.error);
     }
@@ -942,7 +946,7 @@ app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
   setGreetingText();
   setGetStarted();
-  persistentMenu(persistentMenuData);
+  setPersistentMenu();
 });
 
 module.exports = app;
