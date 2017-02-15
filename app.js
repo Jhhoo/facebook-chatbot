@@ -845,14 +845,14 @@ function setPersistentMenu() {
         {
           "type":"web_url",
           "title":"Checkout",
-          "url":"http://petersapparel.parseapp.com/checkout",
+          "url":"https://www.oculus.com/",
           "webview_height_ratio": "full",
           "messenger_extensions": true
         },
         {
           "type":"web_url",
           "title":"View Website",
-          "url":"http://petersapparel.parseapp.com/"
+          "url":"https://www.oculus.com/"
         }
       ]
   };
@@ -875,7 +875,7 @@ function createPersistentMenuApi(data) {
 
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
-      console.log("Thread setting greetings setup successfully!");
+      console.log("Thread setting persistent menu setup successfully!");
     } else {
       console.error("Failed calling Thread Reference API", response.statusCode,     response.statusMessage, body.error);
     }
