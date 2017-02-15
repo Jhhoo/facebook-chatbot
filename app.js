@@ -825,7 +825,7 @@ function sendAccountLinking(recipientId) {
   callSendAPI(messageData);
 }
 
-
+/*
 function setPersistentMenu() {
   console.log("Persistent menu set successfully!");
   var persistentMenuData = {
@@ -851,7 +851,29 @@ function setPersistentMenu() {
   };
   createPersistentMenuApi(persistentMenuData);
 }
+*/
 
+var persistentMenuData = {
+    setting_type : "call_to_actions",
+    thread_state : "existing_thread",
+    call_to_actions:[
+      {
+        "type":"postback",
+        "title":"Help",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_HELP"
+      },
+      {
+        "type":"postback",
+        "title":"Start a New Order",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_START_ORDER"
+      },
+      {
+        "type":"web_url",
+        "title":"View Website",
+        "url":"https://www.oculus.com/"
+      }
+    ]
+};
 
 
 /*
@@ -939,7 +961,7 @@ app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
   setGreetingText();
   setGetStarted();
-  setPersistentMenu();
+  createPersistentMenuApi(persistentMenuData);
 });
 
 module.exports = app;
