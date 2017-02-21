@@ -800,11 +800,12 @@ function sendAccountLinking(recipientId) {
 
 
 /*
-*
+***********************
+**********************
 * Start server events will activate these thread settings upon launch including
 * a greeting message, get started button, and persistent menu
-*
-*
+**********************
+**********************
 * Greeting Message
 *
 */
@@ -871,10 +872,10 @@ function setPersistentMenu() {
   createGreetingApi(persistentMenuData);
 }
 
-/*
+/***********************
  * Call the Thread API. Setup Get Started button, Greetings text, and Persistent Menu
  * get the message id in a response
- *
+ ***********************
  */
 
  function createGreetingApi(data) {
@@ -893,12 +894,11 @@ function setPersistentMenu() {
    });
  }
 
- /*
+ /***********************
   * Call the Send API. The message data goes in the body. If successful, we'll
   * get the message id in a response
-  *
+  ***********************
   */
-/* Sample from Facebook*/
 function callSendAPI(messageData) {
   request({
     uri: 'https://graph.facebook.com/v2.6/me/messages',
